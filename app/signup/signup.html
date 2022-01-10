@@ -21,6 +21,13 @@
           <input type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="email" placeholder="E-mail" ng-model="email">
           <br> <br>
 
+          <label for="userType"><b>Choose a user type:</b></label>
+          <select name="userType" id="userType" ng-model="userType">
+            <option value="Transportator">Transportator</option>
+            <option value="Expeditor">Expeditor</option>
+          </select>
+          <br> <br>
+
           <label><b>Username</b></label> <br>
           <input type="text" id="username" placeholder="Username" ng-model="username">
           <br> <br>
