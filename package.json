@@ -7,8 +7,10 @@
   "license": "MIT",
   "dependencies": {
     "angular": "^1.7.5",
+    "angular-esri-map": "^1.1.10",
     "angular-loader": "^1.7.5",
     "angular-route": "^1.7.5",
+    "esri-loader": "^3.3.0",
     "html5-boilerplate": "0.0.1"
   },
   "devDependencies": {

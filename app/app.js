@@ -6,8 +6,10 @@ angular.module('myApp', [
   'myApp.login',
   'myApp.signup',
   'myApp.dashboard',
-  'myApp.version'
+  'myApp.version',
+  'esri.map'
 ]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/login'});
-}])
+
+  config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.otherwise({ redirectTo: '/login' });
+  }])
