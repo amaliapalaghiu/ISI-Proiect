@@ -9,10 +9,20 @@ angular.module('myApp.login', ['ngRoute'])
   });
 }])
 
-.controller('LoginCtrl', ['$scope', '$location', function($scope, $location) {
+.controller('LoginCtrl', ['$scope', '$location', '$http', function($scope, $location, $http) {
   $scope.loginClick = function() {
-    // TODO: Need to verify if credentials are ok and redirect to dashboard
-    $location.path('/dashboard');
+    $http({
+      method: 'GET',
+      url: 'http://localhost:3000/api/users/get',
+      params: {
+        username: $scope.username,
+        passwrd: $scope.password
+      }
+    }).then(function successCallback(response) {
+      console.log(response);
+      $location.path('/dashboard');
+    }, function errorCallback(response) {
+    });
   }
   $scope.signupClick = function() {
     $location.path('/signup');

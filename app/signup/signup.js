@@ -9,9 +9,24 @@ angular.module('myApp.signup', ['ngRoute'])
   });
 }])
 
-.controller('SignupCtrl', ['$scope', '$location', function($scope, $location) {
+.controller('SignupCtrl', ['$scope', '$location', '$http', function($scope, $location, $http) {
   $scope.signupButtonClick = function() {
-    // TODO: Need to verify if the username is available and the password meets all requirements
-    $location.path('/login');
+    $http({
+      method: 'POST',
+      url: 'http://localhost:3000/api/users/add',
+      data: { 
+        username: $scope.username,
+        passwrd: $scope.password,
+        firstName: $scope.firstName, 
+        lastName: $scope.lastName,
+        telephone: $scope.telephone,
+        email: $scope.email,
+        user_type: 1
+      }
+    }).then(function successCallback(response) {
+        $location.path('/login');
+      }, function errorCallback(response) {
+        
+      });
   }
 }]);

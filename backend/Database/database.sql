@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS users (
     userid SERIAL PRIMARY KEY,
     username varchar(50),
-    passwrd varchar(50),
+    passwrd varchar(255),
     user_type numeric
 );
 
@@ -11,14 +11,22 @@ CREATE TABLE IF NOT EXISTS marfa (
 
 CREATE TABLE IF NOT EXISTS transportatori (
     transportatorID SERIAL PRIMARY KEY,
+    userID INTEGER,
+    firstName varchar(50),
+    lastName varchar(50),
     telefon varchar(15),
-    email varchar(50)
+    email varchar(50),
+    FOREIGN KEY(userID) REFERENCES users(userID)
 );
 
 CREATE TABLE IF NOT EXISTS expeditori (
     expeditorID SERIAL PRIMARY KEY,
+    userID INTEGER,
+    firstName varchar(50),
+    lastName varchar(50),
     telefon varchar(15),
-    email varchar(50)
+    email varchar(50),
+    FOREIGN KEY(userID) REFERENCES users(userID)
 );
 
 CREATE TABLE IF NOT EXISTS contracte (
@@ -69,3 +77,10 @@ CREATE TABLE IF NOT EXISTS cereri (
     buget INTEGER,
     FOREIGN KEY(expeditorID) REFERENCES expeditori(expeditorID)
 );
+
+
+-- drop table cereri;
+-- drop table curse;
+-- drop table camion;
+-- drop table transportatori;
+-- drop table expeditori;
