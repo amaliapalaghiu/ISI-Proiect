@@ -19,8 +19,12 @@ angular.module('myApp.login', ['ngRoute'])
         passwrd: $scope.password
       }
     }).then(function successCallback(response) {
-      console.log(response);
-      $location.path('/dashboard');
+      console.log(response.data[0].user_type);
+      if(response.data[0].user_type == 1) {
+        $location.path('/dashboardtrans');
+      } else {
+        $location.path('/dashboardexp');
+      }
     }, function errorCallback(response) {
     });
   }

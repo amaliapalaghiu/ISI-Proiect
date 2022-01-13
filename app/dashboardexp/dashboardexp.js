@@ -1,15 +1,15 @@
 'use strict';
 
-angular.module('myApp.dashboard', ['ngRoute'])
+angular.module('myApp.dashboardexp', ['ngRoute'])
 
   .config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/dashboard', {
-      templateUrl: 'dashboard/dashboard.html',
-      controller: 'DashboardCtrl'
+    $routeProvider.when('/dashboardexp', {
+      templateUrl: 'dashboardexp/dashboardexp.html',
+      controller: 'DashboardExpCtrl'
     });
   }])
 
-  .controller('DashboardCtrl', function ($scope) {
+  .controller('DashboardExpCtrl', function ($scope) {
     $scope.map = {
       center: {
         lng: 26.09,

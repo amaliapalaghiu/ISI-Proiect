@@ -5,7 +5,8 @@ angular.module('myApp', [
   'ngRoute',
   'myApp.login',
   'myApp.signup',
-  'myApp.dashboard',
+  'myApp.dashboardtrans',
+  'myApp.dashboardexp',
   'myApp.version',
   'esri.map'
 ]).
