@@ -8,6 +8,8 @@ angular.module('myApp', [
   'myApp.dashboardtrans',
   'myApp.dashboardexp',
   'myApp.version',
+  'myApp.hartaTrans',
+  'myApp.oferteTrans',
   'esri.map'
 ]).
 
