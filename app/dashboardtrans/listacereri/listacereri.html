@@ -1,0 +1,52 @@
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="dashboardtrans/listacereri/listacereri.css">
+</head>
+
+<header>
+    <div class="container">
+        <h3 class="logo">Cererile inregistrate de clienti:</h3>
+        <nav>
+            <ul>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<body>
+    <div class="header_fixed" ng-controller="ListaCereriTransCtrl">
+        <table>
+            <thead>
+                <tr>
+                    <th>Tip marfa</th>
+                    <th>Masa</th>
+                    <th>Volum</th>
+                    <th>Data plecarii</th>
+                    <th>Data max plecarii</th>
+                    <th>Locul plecarii</th>
+                    <th>Data sosirii</th>
+                    <th>Data max sosirii</th>
+                    <th>Locul sosirii</th>
+                    <th>Buget</th>
+                    <th>Stare</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="entry in listaCereriData">
+                <td>{{entry.tip_marfa}}</td>
+                <td>{{entry.masa}}</td>
+                <td>{{entry.volum}}</td>
+                <td>{{entry.data_plecarii}}</td>
+                <td>{{entry.data_max_plecarii}}</td>
+                <td>{{entry.locul_plecarii}}</td>
+                <td>{{entry.data_sosirii}}</td>
+                <td>{{entry.data_max_sosirii}}</td>
+                <td>{{entry.locul_sosirii}}</td>
+                <td>{{entry.buget}}</td>
+                <td><button type="button">Preluare marfa</button></td>
+            </tbody>
+        </table>
+    </div>
+</body>

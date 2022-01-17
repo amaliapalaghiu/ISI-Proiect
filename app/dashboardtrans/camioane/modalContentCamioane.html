@@ -1,0 +1,44 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="dashboardtrans/camioane/modalContentCamioane.css">
+</head>
+
+<body>
+  <div class="modal-dialog" style="width:350px;" ng-controller="CamioaneTransCtrl">
+    <div class="modal-header">
+      <h3 class="modal-title" id="modal-title">Completati datele de mai jos:</h3>
+    </div>
+
+    <form ng-submit="submitTrucks()">
+        <div class="modal-body" id="modal-body">
+            <label><b>Numarul de inmatriculare</b></label> <br>
+            <input type="text" id="nr_inmatriculareTruck" placeholder="Numarul de inmatriculare" ng-model="truck.nr_inmatriculare">
+            <br> <br>
+
+            <label><b>Volum</b></label> <br>
+            <input type="text" id="volum" placeholder="Volum" ng-model="truck.volum">
+            <br> <br>
+
+            <label><b>Latime</b></label> <br>
+            <input type="text" id="latime" placeholder="Latime" ng-model="truck.latime">
+            <br> <br>
+
+            <label><b>Lungime</b></label> <br>
+            <input type="text" id="lungime" placeholder="Lungime" ng-model="truck.lungime">
+            <br> <br>
+
+            <label><b>Inaltime</b></label> <br>
+            <input type="text" id="inaltime" placeholder="Inaltime" ng-model="truck.inaltime">
+            <br> <br>
+
+            <label><b>Greutate</b></label> <br>
+            <input type="text" id="greutate" placeholder="Greutate" ng-model="truck.greutate">
+            <br> <br>
+
+        </div>
+              <div class="modal-footer">
+                <input type="submit" class="btn primary-btn" value="Submit"/>
+              </div>
+    </form>
+    <!-- <button class="btn btn-warning"  ng-click="cancel()">Cancel</button> -->
+  </div>
+</body>

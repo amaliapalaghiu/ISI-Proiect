@@ -12,7 +12,13 @@ angular.module('myApp.dashboardtrans', ['ngRoute'])
     $scope.hartaTransClick = function() {
       $location.path('/dashboardtrans/harta');
     }
+    $scope.cereriClientiTransClick = function() {
+      $location.path('/dashboardtrans/listacereri');
+    }
     $scope.oferteTransClick = function() {
       $location.path('/dashboardtrans/oferte');
+    }
+    $scope.camioaneTransClick = function() {
+      $location.path('/dashboardtrans/camioane');
     }
   }]);

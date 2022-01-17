@@ -132,7 +132,7 @@ tr:nth-child(odd){
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)
 }
 
-#addOffer{
+#addTruck{
     margin-top: 80px;
     margin-left: 40%;
     width: 300px;
@@ -143,10 +143,10 @@ tr:nth-child(odd){
     color: #000405;
     background-color: #ffffff;
 }
-#addOffer:hover {
+#addTruck:hover {
     background-color: rgba(250, 246, 246, 0.726);
 }
-#addOffer:active {
+#addTruck:active {
     background-color: rgba(250, 246, 246, 0.726);
     box-shadow: 0 4px rgb(126, 126, 126);
     transform: translateY(4px);

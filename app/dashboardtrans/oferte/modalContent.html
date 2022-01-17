@@ -1,0 +1,48 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="dashboardtrans/oferte/modalContent.css">
+</head>
+
+<body>
+  <div class="modal-dialog" style="width:350px;" ng-controller="OferteTransCtrl">
+    <div class="modal-header">
+      <h3 class="modal-title" id="modal-title">Completati datele de mai jos:</h3>
+    </div>
+
+    <form ng-submit="submit()">
+        <div class="modal-body" id="modal-body">
+            <label><b>Numarul de inmatriculare</b></label> <br>
+            <input type="text" id="nrInmatriculare" name="nr_inmatriculare" placeholder="Numarul de inmatriculare" ng-model="offer.nr_inmatriculare">
+            <br> <br>
+
+            <label><b>Data plecarii</b></label> <br>
+            <input type="text" id="data_plecarii" placeholder="Data plecarii" value="{{offer.nr_inmatriculare}}" ng-model="offer.data_plecarii">
+            <br> <br>
+
+            <label><b>Locul plecarii</b></label> <br>
+            <input type="text" id="locul_plecarii" placeholder="Locul plecarii" ng-model="offer.locul_plecarii">
+            <br> <br>
+
+            <label><b>Data sosirii</b></label> <br>
+            <input type="text" id="data_sosirii" placeholder="Data sosirii" ng-model="offer.data_sosirii">
+            <br> <br>
+
+            <label><b>Locul sosirii</b></label> <br>
+            <input type="text" id="locul_sosirii" placeholder="Locul Sosirii" ng-model="offer.locul_sosirii">
+            <br> <br>
+
+            <label><b>Pret km gol</b></label> <br>
+            <input type="text" id="pret_km_gol" placeholder="Pret km gol" ng-model="offer.pret_km_gol">
+            <br> <br>
+
+            <label><b>Pret km incarcat</b></label> <br>
+            <input type="text" id="pret_km_incarcat" placeholder="Pret km incarcat" ng-model="offer.pret_km_incarcat">
+            <br> <br>
+
+        </div>
+              <div class="modal-footer">
+                <input type="submit" class="btn primary-btn" value="Submit"/>
+              </div>
+    </form>
+    <!-- <button class="btn btn-warning"  ng-click="cancel()">Cancel</button> -->
+  </div>
+</body>

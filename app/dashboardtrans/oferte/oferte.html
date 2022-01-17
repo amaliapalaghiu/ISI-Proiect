@@ -1,4 +1,7 @@
 <head>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="dashboardtrans/oferte/oferte.css">
 </head>
 
@@ -14,7 +17,7 @@
 </header>
 
 <body>
-    <div class="header_fixed">
+    <div class="header_fixed" ng-controller="OferteTransCtrl">
         <table>
             <thead>
                 <tr>
@@ -44,5 +47,9 @@
             </tbody>
         </table>
     </div>
-    <button type="button" id="addOffer" name="addOffer">Adauga oferta noua</button>
+
+    <div class="modal-addOffer" ng-controller="OferteTransCtrl">
+        <button type="button" id="addOffer" name="addOffer" ng-click="openModal()">Adauga oferta noua</button>
+    </div>
+
 </body>
