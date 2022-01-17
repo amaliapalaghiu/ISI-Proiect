@@ -1,4 +1,5 @@
 <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
   <link rel="stylesheet" type="text/css" href="dashboardtrans/oferte/modalContent.css">
 </head>
 
@@ -15,7 +16,7 @@
             <br> <br>
 
             <label><b>Data plecarii</b></label> <br>
-            <input type="text" id="data_plecarii" placeholder="Data plecarii" value="{{offer.nr_inmatriculare}}" ng-model="offer.data_plecarii">
+            <input type="date" id="data_plecarii" placeholder="Data plecarii" ng-model="offer.data_plecarii" ng-change="checkfnPlecare()">
             <br> <br>
 
             <label><b>Locul plecarii</b></label> <br>
@@ -23,7 +24,7 @@
             <br> <br>
 
             <label><b>Data sosirii</b></label> <br>
-            <input type="text" id="data_sosirii" placeholder="Data sosirii" ng-model="offer.data_sosirii">
+            <input type="date" id="data_sosirii" placeholder="Data sosirii" ng-model="offer.data_sosirii" ng-change="checkfnSosire()">
             <br> <br>
 
             <label><b>Locul sosirii</b></label> <br>
@@ -43,6 +44,5 @@
                 <input type="submit" class="btn primary-btn" value="Submit"/>
               </div>
     </form>
-    <!-- <button class="btn btn-warning"  ng-click="cancel()">Cancel</button> -->
   </div>
 </body>

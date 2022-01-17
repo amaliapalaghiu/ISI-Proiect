@@ -8,12 +8,20 @@ angular.module('myApp.oferteTrans', ['ngRoute', 'ui.bootstrap'])
       controller: 'OferteTransCtrl'
     });
   }])
-  .controller('OferteTransCtrl', ['$scope', '$location', '$http', '$uibModal', function($scope, $location, $http, $uibModal) {
+  .controller('OferteTransCtrl', ['$scope', '$location', '$http', '$uibModal', '$filter', function($scope, $location, $http, $uibModal, $filter) {
     var user = JSON.parse(sessionStorage.user);
     var request = $http.get('http://localhost:3000/api/transportatori/offers/' + user.userid).then(function (response) {
           $scope.offersData = response.data;
         return response.data; 
     });
+
+    $scope.checkfnPlecare = function() {
+      $scope.offer.data_plecarii = new Date($filter('date')($scope.offer.data_plecarii, "yyyy-MM-dd"));
+    }
+
+    $scope.checkfnSosire = function() {
+      $scope.offer.data_sosirii = new Date($filter('date')($scope.offer.data_sosirii, "yyyy-MM-dd"));
+    }
 
     $scope.openModal  = function(){
       $uibModal.open({
