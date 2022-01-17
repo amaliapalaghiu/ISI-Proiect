@@ -1,0 +1,77 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="dashboardexp/cereri/cereri.css">
+</head>
+
+<header>
+    <div class="container">
+        <h3 class="logo">Cerere noua</h3>
+        <nav>
+            <ul>
+                <li><a ng-click="homeClick()">Home</a></li>
+                <li><a ng-click="cereriClick()">Cererile mele</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<body>
+  
+    <div class="cerere" ng-controller="CereriExpCtrl">
+        <h3 class="formHeader">Adauga o cerere</h3>
+        <form>
+            <label><b>Tip Marfa</b></label> <br>
+            <select name="tipMarfa" id="tipMarfa" ng-model="tipMarfa">
+                <option value="Alimente">Alimente</option>
+                <option value="Autoturisme">Autoturisme</option>
+                <option value="EchipamenteMedicale">Echipamente Medicale</option>
+                <option value="Mobila">Mobila</option>
+                <option value="Mobila">Mobila</option>
+                <option value="TransportColete">Transport colete</option>
+              </select>
+            <br> <br>
+  
+            <label><b>Masa</b></label> <br>
+            <input type="number" id="masa" placeholder="Adauga greutatea" ng-model="masa">
+            <br> <br>
+  
+            <label><b>Volum</b></label> <br>
+            <input type="number" id="volum" placeholder="Adauga volumul" ng-model="volum">
+            <br> <br>
+  
+            <label><b>Data plecarii</b></label> <br>
+            <input type="date" id="dataPlecarii" placeholder="Data plecarii" ng-model="dataPlecarii">
+            <br> <br>
+
+            <label><b>Data maxima de plecare</b></label> <br>
+            <input type="date" id="dataMaxPlecare" placeholder="Data maxima a plecarii" ng-model="dataMaxPlecare">
+            <br> <br>
+
+            <label><b>Locul plecarii</b></label> <br>
+            <input type="text" id="loculPlecarii" placeholder="Locul plecarii" ng-model="loculPlecarii">
+            <br> <br>
+
+            <label><b>Data sosirii</b></label> <br>
+            <input type="date" id="dataSosirii" placeholder="Data sosirii" ng-model="dataSosirii">
+            <br> <br>
+
+            <label><b>Data maxima de sosire</b></label> <br>
+            <input type="date" id="dataMaxSosire" placeholder="Data maxima a sosirii" ng-model="dataMaxSosire">
+            <br> <br>
+
+            <label><b>Locul sosirii</b></label> <br>
+            <input type="text" id="loculSosirii" placeholder="Locul sosirii" ng-model="loculSosirii">
+            <br> <br>
+
+            <label><b>Buget</b></label> <br>
+            <input type="number" id="buget" placeholder="Buget" ng-model="buget">
+            <br> <br>
+  
+  
+        </form>
+        <button type="button" name="sendButton" id="sendButton" ng-click="sendButtonClick()">Salveaza</button>
+            <br> <br>
+    </div>
+    
+
+</body>

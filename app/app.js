@@ -8,6 +8,10 @@ angular.module('myApp', [
   'myApp.dashboardtrans',
   'myApp.dashboardexp',
   'myApp.version',
+  'myApp.hartaExp',
+  'myApp.cereriExp',
+  'myApp.success',
+  'myApp.cererileMele',
   'esri.map'
 ]).
 
