@@ -1,13 +1,13 @@
+/* FOR BAR */
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
-body {
+/* body {
 	margin: 0;
 	background: rgb(122, 121, 121);
-	font-family: 'Work Sans', sans-serif;
 	font-weight: 800;
-}
+} */
 
 .container {
-	width: 80%;
+	width: 1535px;
 	margin: 0 auto;
 }
 
@@ -24,6 +24,7 @@ header::after {
 .logo {
   float: left;
   padding: 10px 0;
+  padding-left: 50px;
 }
 
 nav {
@@ -32,7 +33,7 @@ nav {
 
 nav ul {
   margin: 0;
-  padding: 0;
+  padding-right: 50px;
   list-style: none;
 }
 
@@ -40,7 +41,6 @@ nav li {
   display: inline-block;
   margin-left: 70px;
   padding-top: 30px;
-
   position: relative;
 }
 
@@ -70,4 +70,50 @@ nav a::before {
 
 nav a:hover::before {
   width: 100%;
+}
+
+.cerere {
+    border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  width: 50%;
+  height: 80%;
+  padding-left: 30px;
+  margin: 30px;
+}
+
+input {
+width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+#sendButton {
+    width: 100%;
+  background-color: #55d6aa;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.formHeader {
+    padding-left: 270px;
+    font-size: 25px;;
+}
+
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
 }
