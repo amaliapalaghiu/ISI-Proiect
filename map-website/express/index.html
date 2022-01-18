@@ -1,0 +1,132 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Map</title>
+
+    <style>
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        #viewDiv {
+            height: 750px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.21/"></script>
+
+</head>
+
+<body>
+    <div id="viewDiv"></div>
+
+    <script>
+        require([
+            "esri/config",
+            "esri/Map",
+            "esri/views/MapView",
+            "esri/widgets/Locate",
+            "esri/widgets/Track",
+            "esri/Graphic",
+            "esri/layers/GraphicsLayer",
+            "esri/layers/FeatureLayer",
+            "esri/rest/route",
+            "esri/rest/support/RouteParameters",
+            "esri/rest/support/FeatureSet",
+            "esri/geometry/Point",
+        ], function (
+            esriConfig,
+            Map,
+            MapView,
+            Locate,
+            Track,
+            Graphic,
+            GraphicsLayer,
+            FeatureLayer,
+            route,
+            RouteParameters,
+            FeatureSet,
+            Point
+        ) {
+            esriConfig.apiKey =
+                "AAPKd09d7c477e90443abb6473a4741c7b22HbOy9wrPyaF_Ad13oGaPsqUN-cz5J4EVYvrASvJz7PfDZb5q-3vlSw5Xv6Coczx1";
+
+            const map = new Map({
+                basemap: "arcgis-navigation"
+            });
+
+            const view = new MapView({
+                container: "viewDiv",
+                map: map,
+                center: [25.5887, 45.6427], //Longitude, latitude
+                zoom: 6
+            });
+
+            const routeUrl = "https://route-api.arcgis.com/arcgis/rest/services/World/Route/NAServer/Route_World";
+
+            const origin1 = new Point([23.6236, 46.7712]);   // Cluj
+            const destination1 = new Point([26.1025, 44.4268])   // Bucuresti
+
+            const origin2 = new Point([27.6014, 47.1585]);    // Iasi
+            const destination2 = new Point([22.8576, 47.8017]); // Satu Mare
+
+            view.when(() => {
+                const originGraphic1 = addGraphic("origin", origin1);
+                const destinationGraphic1 = addGraphic("destination", destination1)
+                getRoute([originGraphic1, destinationGraphic1], [5, 150, 255]);
+
+                const originGraphic2 = addGraphic("origin", origin2);
+                const destinationGraphic2 = addGraphic("destination", destination2);
+                getRoute([originGraphic2, destinationGraphic2], [255, 150, 5]);
+            })
+
+            function addGraphic(type, point) {
+                const graphic = new Graphic({
+                    symbol: {
+                        type: "simple-marker",
+                        color: (type === "origin") ? "white" : "black",
+                        size: "8px"
+                    },
+                    geometry: point
+                });
+                view.graphics.add(graphic);
+
+                return graphic;
+            }
+
+            function getRoute(stopsArray, routeColor) {
+                const routeParams = new RouteParameters({
+                    stops: new FeatureSet({
+                        features: stopsArray
+                    })
+                })
+
+                console.log(stopsArray);
+
+                route.solve(routeUrl, routeParams)
+                    .then(function (data) {
+                        data.routeResults.forEach(function (result) {
+                            result.route.symbol = {
+                                type: "simple-line",
+                                color: routeColor,
+                                width: 3
+                            };
+                            view.graphics.add(result.route);
+                        });
+
+                    })
+            }
+        });
+
+    </script>
+</body>
+
+</html>
