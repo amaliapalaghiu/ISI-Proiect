@@ -1,0 +1,45 @@
+body .modal-ku {
+    width: 200px;
+    margin: auto;
+  }
+
+label {
+    color: #000405;
+    font-size: 17px;
+}
+#nr_inmatriculareTruck {
+    width: 300px;
+    height: 30px;
+    border-radius: 7px;
+    padding-left: 8px;
+}
+#volum {
+    width: 300px;
+    height: 30px;
+    border-radius: 7px;
+    padding-left: 8px;
+}
+#latime {
+    width: 300px;
+    height: 30px;
+    border-radius: 7px;
+    padding-left: 8px;
+}
+#lungime {
+    width: 300px;
+    height: 30px;
+    border-radius: 7px;
+    padding-left: 8px;
+}
+#inaltime {
+    width: 300px;
+    height: 30px;
+    border-radius: 7px;
+    padding-left: 8px;
+}  
+#greutate {
+    width: 300px;
+    height: 30px;
+    border-radius: 7px;
+    padding-left: 8px;
+}  

@@ -3,11 +3,16 @@
 // Declare app level module which depends on views, and core components
 angular.module('myApp', [
   'ngRoute',
+  'ui.bootstrap',
   'myApp.login',
   'myApp.signup',
   'myApp.dashboardtrans',
   'myApp.dashboardexp',
   'myApp.version',
+  'myApp.hartaTrans',
+  'myApp.oferteTrans',
+  'myApp.camioaneTrans',
+  'myApp.listaCereriClienti',
   'esri.map'
 ]).
 
