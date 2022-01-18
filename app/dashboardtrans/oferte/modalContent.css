@@ -1,0 +1,51 @@
+body .modal-ku {
+    width: 200px;
+    margin: auto;
+  }
+
+label {
+    color: #000405;
+    font-size: 17px;
+}
+#nrInmatriculare {
+    width: 300px;
+    height: 30px;
+    border-radius: 7px;
+    padding-left: 8px;
+}
+#data_plecarii {
+    width: 300px;
+    height: 30px;
+    border-radius: 7px;
+    padding-left: 8px;
+}
+#locul_plecarii {
+    width: 300px;
+    height: 30px;
+    border-radius: 7px;
+    padding-left: 8px;
+}
+#data_sosirii {
+    width: 300px;
+    height: 30px;
+    border-radius: 7px;
+    padding-left: 8px;
+}
+#locul_sosirii {
+    width: 300px;
+    height: 30px;
+    border-radius: 7px;
+    padding-left: 8px;
+}  
+#pret_km_gol {
+    width: 300px;
+    height: 30px;
+    border-radius: 7px;
+    padding-left: 8px;
+}  
+#pret_km_incarcat {
+    width: 300px;
+    height: 30px;
+    border-radius: 7px;
+    padding-left: 8px;
+}  

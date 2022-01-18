@@ -20,6 +20,7 @@ angular.module('myApp.login', ['ngRoute'])
       }
     }).then(function successCallback(response) {
       console.log(response.data[0].user_type);
+      sessionStorage.user = JSON.stringify(response.data[0]);
       if(response.data[0].user_type == 1) {
         $location.path('/dashboardtrans');
       } else {
