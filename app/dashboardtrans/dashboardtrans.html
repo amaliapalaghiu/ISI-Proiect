@@ -1,19 +1,94 @@
 <head>
-  <link rel="stylesheet" href="https://js.arcgis.com/3.39/dijit/themes/claro/claro.css">
-    <link rel="stylesheet" href="https://js.arcgis.com/3.39/esri/css/esri.css">
-    <style>
-      #map {
-        height: 600px;
-      }
-      </style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<style>
+* {box-sizing: border-box;}
+
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+</style>
+<link rel="stylesheet" type="text/css" href="dashboardtrans/dashboardtrans.css">
 </head>
 
-<h1>Welcome Transportator!</h1>
+<header>
+    <div class="container">
+        <h3 class="logo">Bine ati venit!</h3>
+        <nav>
+            <ul>
+                <li><a ng-click="hartaTransClick()">Harta</a></li>
+                <li><a ng-click="cereriClientiTransClick()">Cereri</a></li>
+                <li><a ng-click="oferteTransClick()">Ofertele mele</a></li>
+                <li><a ng-click="camioaneTransClick()">Camioanele mele</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
-<div class="row">
-  <div class="col-xs-8 col-sm-9">
-    <esri-map id="map" center="map.center" zoom="map.zoom" basemap="topo" map-options="map.mapOptions">
+<body>
+    <div class="slideshow-container">
 
-    </esri-map>
-  </div>
-</div>
+    <div class="mySlides fade">
+    <img src="../assets/img/image1.jpg" style="width:100%; margin-top: 25px;">
+    </div>
+
+    <div class="mySlides fade">
+    <img src="../assets/img/image2.jpg" style="width:100%; margin-top: 25px;">
+    </div>
+
+    <div class="mySlides fade">
+    <img src="../assets/img/image3.jpg" style="width:100%; margin-top: 25px;">
+    </div>
+
+    <div class="mySlides fade">
+    <img src="../assets/img/image4.jpg" style="width:100%; margin-top: 25px;">
+    </div>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+    </div>
+</body>

@@ -1,0 +1,47 @@
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="dashboardtrans/camioane/camioane.css">
+</head>
+
+<header>
+    <div class="container">
+        <h3 class="logo">Camioanele asociate contului:</h3>
+        <nav>
+            <ul>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<body>
+    <div class="header_fixed" ng-controller="CamioaneTransCtrl">
+        <table>
+            <thead>
+                <tr>
+                    <th>Numar inmatriculare</th>
+                    <th>Volum</th>
+                    <th>Latime</th>
+                    <th>Lungime</th>
+                    <th>Inaltime</th>
+                    <th>Greutate</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="entry in trucksData">
+                <td>{{entry.tip_camion}}</td>
+                <td>{{entry.volum}}</td>
+                <td>{{entry.latime}}</td>
+                <td>{{entry.lungime}}</td>
+                <td>{{entry.inaltime}}</td>
+                <td>{{entry.greutate}}</td>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="modal-addTruck" ng-controller="CamioaneTransCtrl">
+        <button type="button" id="addTruck" name="addTruck" ng-click="openModalTrucks()">Adauga camion nou</button>
+    </div>
+
+</body>
