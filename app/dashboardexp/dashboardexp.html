@@ -1,14 +1,31 @@
-<head>
+<!-- <head>
     <link rel="stylesheet" href="https://js.arcgis.com/3.39/dijit/themes/claro/claro.css">
-      <link rel="stylesheet" href="https://js.arcgis.com/3.39/esri/css/esri.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.39/esri/css/esri.css">
       <style>
         #map {
           height: 600px;
         }
         </style>
-  </head>
+  </head> -->
   
-  <h1>Welcome Expeditor!</h1>
+  <head>
+    <link rel="stylesheet" type="text/css" href="dashboardexp/dashboardexp.css">
+</head>
+<header>
+    <div class="container">
+        <h3 class="logo">Bine ati venit!</h3>
+        <nav>
+            <ul>
+                <li><a ng-click="hartaExpClick()">Harta</a></li>
+                <li><a ng-click="cerereNouaClick()">Cerere noua</a></li>
+                <li><a ng-click="cereriExpClick()">Cereri</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+  
+  <!-- <h1>Welcome to Expeditor Home!</h1>
   
   <div class="row">
     <div class="col-xs-8 col-sm-9">
@@ -16,4 +33,4 @@
   
       </esri-map>
     </div>
-  </div>
+  </div> -->
