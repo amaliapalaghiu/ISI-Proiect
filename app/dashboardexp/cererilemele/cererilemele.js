@@ -9,7 +9,7 @@ angular.module('myApp.cererileMele', ['ngRoute'])
     });
   }])
 
-  .controller('CererileMeleCtrl', ['$scope', '$location', '$http', function($scope, $location, $http) {
+  .controller('CererileMeleCtrl', ['$scope', '$location', '$http', '$uibModal',function($scope, $location, $http, $uibModal) {
     $scope.homeClick = function() {
       $location.path('/dashboardexp');
     }
@@ -21,4 +21,12 @@ angular.module('myApp.cererileMele', ['ngRoute'])
     $scope.cerereNouaClick = function() {
       $location.path('/dashboardexp/cereri');
     }
+
+    $scope.openModalCerere  = function(){
+      $uibModal.open({
+        templateUrl : '/dashboardexp/cererilemele/modalCerere.html',
+        backdrop: true
+      });
+    };
+
   }]);

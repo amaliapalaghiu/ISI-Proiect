@@ -1,4 +1,7 @@
 <head>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="dashboardexp/cererilemele/cererilemele.css">
 </head>
 
@@ -17,21 +20,41 @@
 
 <body>
   
-    <div class="cereri" ng-controller="CererileMeleCtrl">
-        <h3 class="formHeader">Cereri inregistrate</h3>
-
+    <div class="header_fixed" ng-controller="CererileMeleCtrl">
+        
         <table>
-            <tr>
-              <th>Data</th>
-              <th>Status</th>
-              <th>Cerere</th>
-            </tr>
-            <tr>
+            <thead>
+                <tr>
+                    <th>Tip marfa</th>
+                    <th>Masa</th>
+                    <th>Volum</th>
+                    <th>Data plecarii</th>
+                    <th>Data maxima de plecare</th>
+                    <th>Locul plecarii</th>
+                    <th>Data sosirii</th>
+                    <th>Data maxima de sosire</th>
+                    <th>Locul sosirii</th>
+                    <th>Buget</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="entry in trucksData">
                 <td></td>
                 <td></td>
                 <td></td>
-              </tr>
-          </table>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tbody>
+        </table>
 
+
+
+    </div>
+    <div class="modal-addCerere" ng-controller="CererileMeleCtrl">
+        <button type="button" id="addCerere" name="addCerere" ng-click="openModalCerere()">Adauga cerere noua</button>
     </div>
 </body>
