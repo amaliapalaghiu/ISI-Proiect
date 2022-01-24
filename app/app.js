@@ -17,6 +17,7 @@ angular.module('myApp', [
   'myApp.oferteTrans',
   'myApp.camioaneTrans',
   'myApp.listaCereriClienti',
+  'myApp.oferteExp',
   'esri.map'
 ]).
 

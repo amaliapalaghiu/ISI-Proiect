@@ -11,7 +11,7 @@
         <nav>
             <ul>
                 <li><a ng-click="homeClick()">Home</a></li>
-                <li><a ng-click="cerereNouaClick()">Cerere Noua</a></li>
+                <li><a ng-click="oferteClick()">Oferte</a></li>
                 <li><a href="#">Logout</a></li>
             </ul>
         </nav>
@@ -35,6 +35,7 @@
                     <th>Data maxima de sosire</th>
                     <th>Locul sosirii</th>
                     <th>Buget</th>
+                    <th>Stare</th>
                 </tr>
             </thead>
             <tbody ng-repeat="entry in cereriData">
@@ -48,6 +49,7 @@
                 <td>{{entry.data_max_sosirii}}</td>
                 <td>{{entry.locul_sosirii}}</td>
                 <td>{{entry.buget}}</td>
+                <td>{{entry.stare}}</td>
             </tbody>
         </table>
 

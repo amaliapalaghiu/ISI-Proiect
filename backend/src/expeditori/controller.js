@@ -10,7 +10,7 @@ const getExpeditorbyUserId = (req, res) => {
 
 const getCereri = (req, res) => {
     const userID = req.params.id;
-    pool.query("SELECT C.tip_marfa, C.masa, C.volum, C.data_plecarii, C.data_max_plecarii, C.locul_plecarii, C.data_sosirii, C.data_max_sosirii, C.locul_sosirii, C.buget \
+    pool.query("SELECT C.tip_marfa, C.masa, C.volum, C.data_plecarii, C.data_max_plecarii, C.locul_plecarii, C.data_sosirii, C.data_max_sosirii, C.locul_sosirii, C.buget, C.stare \
                 FROM cereri C JOIN expeditori T ON T.expeditorID = \
                 C.expeditorID WHERE T.userID=$1", [userID], 
                 (error, results) => {
@@ -26,8 +26,8 @@ const addCerere = async(req, res) => {
         if (error) throw error;
 
         pool.query("INSERT INTO cereri(expeditorid, tip_marfa, masa, volum, data_plecarii, \
-            data_max_plecarii, locul_plecarii, data_sosirii, data_max_sosirii, locul_sosirii, buget) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *",
-            [results.rows[0].expeditorid,tip_marfa, masa, volum, data_plecarii, data_max_plecarii, locul_plecarii, data_sosirii, data_max_sosirii, locul_sosirii, buget], 
+            data_max_plecarii, locul_plecarii, data_sosirii, data_max_sosirii, locul_sosirii, buget, stare) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *",
+            [results.rows[0].expeditorid,tip_marfa, masa, volum, data_plecarii, data_max_plecarii, locul_plecarii, data_sosirii, data_max_sosirii, locul_sosirii, buget, "Inregistrata"], 
                     (error, resultss) => {
             if (error) throw error;
 
@@ -36,8 +36,21 @@ const addCerere = async(req, res) => {
     })
 };
 
+const getOferte =  (req, res) => {
+    pool.query("SELECT C.tip_camion, C.volum, C.latime, C.lungime, C.inaltime, C.greutate, \
+                Cr.data_plecarii + interval '1 day' as data_plecarii, Cr.locul_plecarii, \
+                Cr.data_sosirii + interval '1 day' as data_sosirii, Cr.locul_sosirii, \
+                Cr.pret_km_gol, Cr.pret_km_incarcat FROM camion C JOIN curse Cr ON C.camionID = Cr.camionID \
+                AND data_plecarii >= CURRENT_DATE",
+                (error, results) => {
+        if (error) throw error;
+        res.status(200).json(results.rows);
+    })
+}
+
 module.exports = {
     getExpeditorbyUserId,
     getCereri,
-    addCerere
+    addCerere,
+    getOferte
 }

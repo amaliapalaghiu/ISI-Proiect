@@ -27,8 +27,8 @@ angular.module('myApp.cererileMele', ['ngRoute'])
     //   $location.path('/dashboardexp/success');
     // }
 
-    $scope.cerereNouaClick = function() {
-      $location.path('/dashboardexp/cereri');
+    $scope.oferteClick = function() {
+      $location.path('/dashboardexp/oferte');
     }
 
     $scope.openModalCerere  = function(){
