@@ -33,8 +33,10 @@ CREATE TABLE IF NOT EXISTS contracte (
     contractID SERIAL PRIMARY KEY,
     transportatorID INTEGER,
     expeditorID INTEGER,
+    cerereID INTEGER,
     FOREIGN KEY(transportatorID) REFERENCES transportatori(transportatorID),
-    FOREIGN KEY(expeditorID) REFERENCES expeditori(expeditorID)
+    FOREIGN KEY(expeditorID) REFERENCES expeditori(expeditorID),
+    FOREIGN KEY(cerereID) REFERENCES cereri(cerereID)
 );
 
 CREATE TABLE IF NOT EXISTS camion (
