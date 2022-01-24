@@ -1,0 +1,53 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="dashboardadmin/conturi/addUserModal.css">
+  </head>
+
+  <body>
+    <div class="modal-dialog" style="width:350px;" ng-controller="ConturiCtrl">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Adauga un nou utilizator</h3>
+      </div>
+  
+      <form ng-submit="submitCont()">
+          <div class="modal-body" id="modal-body">
+  
+            <label><b>First Name</b></label> <br>
+            <input type="text" id="firstName" placeholder="First Name" ng-model="cont.firstName">
+            <br> <br>
+  
+            <label><b>Last Name</b></label> <br>
+            <input type="text" id="lastName" placeholder="Last Name" ng-model="cont.lastName">
+            <br> <br>
+  
+            <label><b>Telephone</b></label> <br>
+            <input type="text" pattern="^[0-9]{10}$" id="telephone" placeholder="Telephone" ng-model="cont.telephone">
+            <br> <br>
+
+            <label><b>E-mail</b></label> <br>
+            <input type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="email" placeholder="E-mail" ng-model="cont.email">
+            <br> <br>
+
+            <label for="userType"><b>Choose a user type:</b></label>
+            <select name="userType" id="userType" ng-model="cont.userType">
+                <option value="Transportator">Transportator</option>
+                <option value="Expeditor">Expeditor</option>
+                <option value="Admin">Admin</option>
+            </select>
+            <br> <br>
+
+            <label><b>Username</b></label> <br>
+            <input type="text" id="username" placeholder="Username" ng-model="cont.username">
+            <br> <br>
+  
+            <label><b>Password</b></label> <br>
+            <input type="password" id="password" placeholder="Password" ng-model="cont.password">
+            <br> <br>
+  
+          </div>
+                <div class="modal-footer">
+                  <input type="submit" class="btn primary-btn" value="Submit"/>
+                </div>
+      </form>
+      <!-- <button class="btn btn-warning"  ng-click="cancel()">Cancel</button> -->
+    </div>
+  </body>
