@@ -12,6 +12,11 @@ angular.module('myApp.listaCereriClienti', ['ngRoute', 'ui.bootstrap'])
     var user = JSON.parse(sessionStorage.user);
     var request = $http.get('http://localhost:3000/api/transportatori/cereriClienti').then(function (response) {
           $scope.listaCereriData = response.data;
-        return response.data; 
+        return response.data;
     });
+
+    $scope.preluareMarfaTrans = function(idx){
+      console.log($scope.listaCereriData[idx]);
+    }
+
   }]);

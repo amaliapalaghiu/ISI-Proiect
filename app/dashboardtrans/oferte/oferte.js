@@ -21,6 +21,16 @@ angular.module('myApp.oferteTrans', ['ngRoute', 'ui.bootstrap'])
 
     $scope.checkfnSosire = function() {
       $scope.offer.data_sosirii = new Date($filter('date')($scope.offer.data_sosirii, "yyyy-MM-dd"));
+      var request = $http.get('http://localhost:3000/api/transportatori/camioane_disponibile', {
+          params: {
+              userID: user.userid,
+              data_plecarii_dorita: $scope.offer.data_plecarii,
+              data_sosirii_dorita: $scope.offer.data_sosirii
+            }
+          }).then(function (response) {
+            $scope.numere_inmatriculare_disponibile = response.data;
+            return response.data;
+          });
     }
 
     $scope.openModal  = function(){

@@ -75,6 +75,7 @@ CREATE TABLE IF NOT EXISTS cereri (
     data_max_sosirii DATE,
     locul_sosirii VARCHAR(50),
     buget INTEGER,
+    stare VARCHAR(50),
     FOREIGN KEY(expeditorID) REFERENCES expeditori(expeditorID)
 );
 
