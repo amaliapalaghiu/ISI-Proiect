@@ -22,15 +22,15 @@
             <thead>
                 <tr>
                     <th>Tip marfa</th>
-                    <th>Masa</th>
-                    <th>Volum</th>
+                    <th>Masa (kg)</th>
+                    <th>Volum (m<sup>3</sup>)</th>
                     <th>Data plecarii</th>
                     <th>Data max plecarii</th>
                     <th>Locul plecarii</th>
                     <th>Data sosirii</th>
                     <th>Data max sosirii</th>
                     <th>Locul sosirii</th>
-                    <th>Buget</th>
+                    <th>Buget (RON)</th>
                     <th>Stare</th>
                 </tr>
             </thead>
@@ -45,7 +45,7 @@
                 <td>{{entry.data_max_sosirii}}</td>
                 <td>{{entry.locul_sosirii}}</td>
                 <td>{{entry.buget}}</td>
-                <td><button type="button">Preluare marfa</button></td>
+                <td><button ng-click="preluareMarfaTrans($index)"><strong>Preluare Marfa</strong></button></td>
             </tbody>
         </table>
     </div>

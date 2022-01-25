@@ -1,0 +1,23 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="dashboardexp/oferte/alegeCerereModal.css">
+  </head>
+
+  <body>
+    <div class="modal-dialog" style="width:350px;" ng-controller="OferteExpCtrl">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Alege o cerere</h3>
+      </div>
+  
+      <form ng-submit="submitCerereId()">
+          <div class="modal-body" id="modal-body">
+          <label><b>Cerere</b></label> <br>
+          <input type="text" id="idCerere" placeholder="Selecteaza cererea" ng-model="x.idCerere">
+          <br> <br>
+
+        </div>
+        <div class="modal-footer">
+          <input type="submit" class="btn primary-btn" value="Submit"/>
+        </div>
+</form>
+</div>
+</body>

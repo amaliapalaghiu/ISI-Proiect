@@ -21,6 +21,9 @@ angular.module('myApp.dashboardtrans', ['ngRoute'])
 		$scope.camioaneTransClick = function () {
 			$location.path('/dashboardtrans/camioane');
 		}
+		$scope.contracteTransClick = function () {
+			$location.path('/dashboardtrans/contractetrans');
+		}
 
 		$scope.$on('$viewContentLoaded', function () {
 			var slideIndex = 0;
