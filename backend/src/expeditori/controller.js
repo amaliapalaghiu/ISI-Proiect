@@ -2,7 +2,7 @@ const pool = require('../../db');
 
 const getExpeditorbyUserId = (req, res) => {
     const userId = parseInt(req.params.id);
-    pool.query("SELECT * FROM expeditori WHERE userID = $1", [userId],  (error, results) => {
+    pool.query("SELECT expeditorid, firstname, lastname, telefon, email FROM expeditori WHERE userID = $1", [userId],  (error, results) => {
         if (error) throw error;
         res.status(200).json(results.rows);
     })
@@ -37,7 +37,7 @@ const addCerere = async(req, res) => {
 };
 
 const getOferte =  (req, res) => {
-    pool.query("SELECT C.tip_camion, C.volum, C.latime, C.lungime, C.inaltime, C.greutate, \
+    pool.query("SELECT C.camionID, C.tip_camion, C.volum, C.latime, C.lungime, C.inaltime, C.greutate, \
                 Cr.data_plecarii + interval '1 day' as data_plecarii, Cr.locul_plecarii, \
                 Cr.data_sosirii + interval '1 day' as data_sosirii, Cr.locul_sosirii, \
                 Cr.pret_km_gol, Cr.pret_km_incarcat FROM camion C JOIN curse Cr ON C.camionID = Cr.camionID \
@@ -48,9 +48,57 @@ const getOferte =  (req, res) => {
     })
 }
 
+const getDateTransportatorFromOfertaID = (req, res) => {
+    const camionID = req.params.id;
+    pool.query("SELECT T.transportatorid, T.firstname, T.lastname, T.telefon, T.email FROM transportatori T JOIN camion C \
+                ON T.transportatorid = C.transportatorid WHERE C.camionid = $1;", [camionID], 
+                (error, results) => {
+        if (error) throw error;
+
+        res.status(200).json(results.rows[0]);
+    })
+};
+
+const addContract = async(req, res) => {
+    const {transportatorid, expeditorid, cerereid} = req.body;
+
+    await pool.query("UPDATE cereri SET stare = 'preluat' WHERE cerereid = $1;", [cerereid], (error, results) => {
+        if (error) throw error;
+        pool.query("INSERT INTO contracte(transportatorid, expeditorid, cerereid) VALUES ($1, $2, $3) RETURNING *",
+        [transportatorid, expeditorid, cerereid], 
+                (error, results) => {
+            if (error) throw error;
+
+            res.status(201).json(results.rows);
+        })
+    });
+};
+
+const getCamion = (req, res) => {
+    const camionId = parseInt(req.params.id);
+    pool.query("SELECT tip_camion, volum, latime, lungime, inaltime, greutate, disponibilitate FROM camion WHERE camionID = $1", [camionId],  (error, results) => {
+        if (error) throw error;
+        res.status(200).json(results.rows);
+    })
+};
+
+const getCerereById = (req, res) => {
+    const cerereID = req.params.id;
+    pool.query("SELECT tip_marfa, masa, volum, data_plecarii, data_max_plecarii, locul_plecarii, data_sosirii, data_max_sosirii, locul_sosirii, buget, stare \
+                FROM cereri WHERE cerereID=$1", [cerereID], 
+                (error, results) => {
+        if (error) throw error;
+        res.status(200).json(results.rows);
+    })
+};
+
 module.exports = {
     getExpeditorbyUserId,
     getCereri,
     addCerere,
-    getOferte
+    getOferte,
+    getDateTransportatorFromOfertaID,
+    addContract,
+    getCamion,
+    getCerereById
 }

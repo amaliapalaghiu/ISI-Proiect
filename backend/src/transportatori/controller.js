@@ -73,11 +73,27 @@ const getListaCereriClienti = (req, res) => {
     })
 };
 
+const addContract = async(req, res) => {
+    const {transportatorid, expeditorid, cerereid} = req.body;
+
+    await pool.query("UPDATE cereri SET stare = 'preluat' WHERE cerereid = $1;", [cerereid], (error, results) => {
+        if (error) throw error;
+        pool.query("INSERT INTO contracte(transportatorid, expeditorid, cerereid) VALUES ($1, $2, $3) RETURNING *",
+        [transportatorid, expeditorid, cerereid], 
+                (error, results) => {
+            if (error) throw error;
+
+            res.status(201).json(results.rows);
+        })
+    });
+};
+
 module.exports = {
     getTransportatori,
     getOffers,
     addOffer,
     getTrucks,
     addTruck,
-    getListaCereriClienti
+    getListaCereriClienti,
+    addContract
 }

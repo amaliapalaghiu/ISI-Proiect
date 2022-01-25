@@ -9,5 +9,6 @@ router.post('/offers', controller.addOffer)
 router.get('/camioane/:id', controller.getTrucks)
 router.post('/camioane', controller.addTruck)
 router.get('/cereriClienti', controller.getListaCereriClienti)
+router.post('/contracte', controller.addContract)
 
 module.exports = router;
