@@ -1,0 +1,40 @@
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="dashboardtrans/contractetrans/contractetrans.css">
+</head>
+
+<header>
+    <div class="container">
+        <h3 class="logo">Contractele asociate contului:</h3>
+        <nav>
+            <ul>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<body>
+    <div class="header_fixed" ng-controller="ContracteTransCtrl">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nume</th>
+                    <th>Prenume</th>
+                    <th>Telefon</th>
+                    <th>E-mail</th>
+                    <th>Contract</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="entry in listaContracte">
+                <td>{{entry.lastname}}</td>
+                <td>{{entry.firstname}}</td>
+                <td>{{entry.telefon}}</td>
+                <td>{{entry.email}}</td>
+                <td><button ng-click="veziContractTrans($index)"><strong>Vizualizare Contract</strong></button></td>
+            </tbody>
+        </table>
+    </div>
+</body>

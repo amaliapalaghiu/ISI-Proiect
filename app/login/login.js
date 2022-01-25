@@ -23,8 +23,10 @@ angular.module('myApp.login', ['ngRoute'])
       sessionStorage.user = JSON.stringify(response.data[0]);
       if(response.data[0].user_type == 1) {
         $location.path('/dashboardtrans');
-      } else {
+      } else if(response.data[0].user_type == 2){
         $location.path('/dashboardexp');
+      } else {
+        $location.path('/dashboardadmin');
       }
     }, function errorCallback(response) {
     });

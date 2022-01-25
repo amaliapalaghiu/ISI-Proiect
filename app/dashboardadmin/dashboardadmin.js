@@ -1,29 +1,21 @@
 'use strict';
 
-angular.module('myApp.dashboardtrans', ['ngRoute'])
+angular.module('myApp.dashboardadmin', ['ngRoute'])
 
 	.config(['$routeProvider', function ($routeProvider) {
-		$routeProvider.when('/dashboardtrans', {
-			templateUrl: 'dashboardtrans/dashboardtrans.html',
-			controller: 'DashboardTransCtrl'
+		$routeProvider.when('/dashboardadmin', {
+			templateUrl: 'dashboardadmin/dashboardadmin.html',
+			controller: 'DashboardAdminCtrl'
 		});
 	}])
-	.controller('DashboardTransCtrl', ['$scope', '$location', function ($scope, $location) {
+	.controller('DashboardAdminCtrl', ['$scope', '$location', function ($scope, $location) {
 		$scope.hartaTransClick = function () {
 			$location.path('/dashboardtrans/harta');
 		}
-		$scope.cereriClientiTransClick = function () {
-			$location.path('/dashboardtrans/listacereri');
+		$scope.conturiUtilizatoriClick = function () {
+			$location.path('/dashboardadmin/conturi');
 		}
-		$scope.oferteTransClick = function () {
-			$location.path('/dashboardtrans/oferte');
-		}
-		$scope.camioaneTransClick = function () {
-			$location.path('/dashboardtrans/camioane');
-		}
-		$scope.contracteTransClick = function () {
-			$location.path('/dashboardtrans/contractetrans');
-		}
+
 
 		$scope.$on('$viewContentLoaded', function () {
 			var slideIndex = 0;
