@@ -11,20 +11,24 @@
 
     <form ng-submit="submit()">
         <div class="modal-body" id="modal-body">
-            <label><b>Numarul de inmatriculare</b></label> <br>
-            <input type="text" id="nrInmatriculare" name="nr_inmatriculare" placeholder="Numarul de inmatriculare" ng-model="offer.nr_inmatriculare">
-            <br> <br>
 
             <label><b>Data plecarii</b></label> <br>
             <input type="date" id="data_plecarii" placeholder="Data plecarii" ng-model="offer.data_plecarii" ng-change="checkfnPlecare()">
             <br> <br>
 
-            <label><b>Locul plecarii</b></label> <br>
-            <input type="text" id="locul_plecarii" placeholder="Locul plecarii" ng-model="offer.locul_plecarii">
-            <br> <br>
-
             <label><b>Data sosirii</b></label> <br>
             <input type="date" id="data_sosirii" placeholder="Data sosirii" ng-model="offer.data_sosirii" ng-change="checkfnSosire()">
+            <br> <br>
+
+            <label><b>Numarul de inmatriculare</b></label> <br>
+            <select name="nr_inmatriculare" id="nrInmatriculare" ng-model="offer.nr_inmatriculare" placeholder="Nimic selectat">
+              <option value="" disabled selected>Nimic selectat</option>
+              <option ng-repeat= "numarInm in numere_inmatriculare_disponibile">{{numarInm}}</option>
+            </select>
+            <br> <br>
+
+            <label><b>Locul plecarii</b></label> <br>
+            <input type="text" id="locul_plecarii" placeholder="Locul plecarii" ng-model="offer.locul_plecarii">
             <br> <br>
 
             <label><b>Locul sosirii</b></label> <br>

@@ -1,0 +1,51 @@
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="dashboardtrans/contractincheiat/contractincheiat.css">
+</head>
+
+<header>
+    <div class="container">
+        <h3 class="logo">Contract:</h3>
+        <nav>
+            <ul>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<body>
+    <div class="contractincheiat" ng-controller="ContractIncheiatTransCtrl">
+        <div class="contractTitle">
+            <h4><b>CONTRACT</b></h4>
+        </div>
+        <br> <br>
+        
+        <p>&nbsp;&nbsp;Acest contract a fost incheiat intre:</p>
+        <br>
+
+        <p>&nbsp;&nbsp;<b>PARTILE CONTRACTANTE</b></p> <br>
+
+        <p>&nbsp;&nbsp;1. Transportator {{datetrans.firstname}} {{datetrans.lastname}}, email: {{datetrans.email}}, telefon: {{datetrans.telefon}}</p>
+        <p>&nbsp;&nbsp;2. Expeditor {{dateexp.firstname}} {{dateexp.lastname}}, email: {{dateexp.email}}, telefon: {{dateexp.telefon}}</p>
+        <br>
+        
+        <p>&nbsp;&nbsp;<b>OBIECTIVUL CONTRACTULUI</b></p>
+
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Obiectul contractului il constituie preluarea a {{cerere.masa}} kg de {{cerere.tip_marfa}} ce ocupa
+            un volum de {{cerere.volum}} metrii cubi de la {{cerere.locul_plecarii}} in data de {{cerere.data_plecarii}} si transportarea
+            acesteia la {{cerere.locul_sosirii}} in data de {{cerere.data_sosirii}}.</p>
+        
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Camionul cu care marfa va fi transportata are numarul de inmatriculare {{datecamion.tip_camion}},
+            volumul {{datecamion.volum}} metrii cubi, latimea de {{datecamion.latime}} metri, lungimea de {{datecamion.lungime}} metri,
+            inaltimea de {{datecamion.inaltime}} metri si greutatea de {{datecamion.greutate}} tone.</p>
+        
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Tariful aplicat este de {{datecamion.pret_km_gol}} RON per km pe care camionul il parcurge gol si 
+            {{datecamion.pret_km_incarcat}} RON per km pe care camionul il parcurge incarcat.</p>
+        
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Data scadenta de plata este: {{cerere.data_sosirii}}</p>
+    
+    </div>
+</body>
