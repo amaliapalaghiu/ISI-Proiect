@@ -10,7 +10,7 @@ const getTransportatori = (req, res) => {
 
 const getOffers = (req, res) => {
     const userID = req.params.id;
-    pool.query("SELECT C.tip_camion, C.volum, C.latime, C.lungime, C.inaltime, C.greutate, \
+    pool.query("SELECT C.camionID, C.tip_camion, C.volum, C.latime, C.lungime, C.inaltime, C.greutate, \
                 Cr.data_plecarii + interval '1 day' as data_plecarii, Cr.locul_plecarii, \
                 Cr.data_sosirii + interval '1 day' as data_sosirii, Cr.locul_sosirii, \
                 Cr.pret_km_gol, Cr.pret_km_incarcat FROM camion C JOIN transportatori T ON T.transportatorid = \
