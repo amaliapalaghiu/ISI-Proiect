@@ -13,10 +13,11 @@ angular.module('myApp', [
   'myApp.cereriExp',
   'myApp.success',
   'myApp.cererileMele',
-  'myApp.hartaTrans',
   'myApp.oferteTrans',
   'myApp.camioaneTrans',
   'myApp.listaCereriClienti',
+  'myApp.contracteTrans',
+  'myApp.contractincheiatTrans',
   'esri.map'
 ]).
 
