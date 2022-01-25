@@ -1,0 +1,54 @@
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="dashboardexp/oferte/oferte.css">
+</head>
+
+<header>
+    <div class="container">
+        <h3 class="logo">Oferte disponibile </h3>
+        <nav>
+            <ul>
+                <li><a ng-click="homeClick()">Home</a></li>
+                <li><a ng-click="cereriClick()">Cereri</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<body>
+    <div class="header_fixed" ng-controller="OferteExpCtrl">
+        <table>
+            <thead>
+                <tr>
+                    <th>Numar inmatriculare</th>
+                    <th>Data plecarii</th>
+                    <th>Locul plecarii</th>
+                    <th>Data sosirii</th>
+                    <th>Locul sosirii</th>
+                    <th>Dimensiuni (L x l x h)</th>
+                    <th>Volum</th>
+                    <th>Greutate</th>
+                    <th>Pret km gol</th>
+                    <th>Pret km incarcat</th>
+                    <th>Stare</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="entry in offersData">
+                <td>{{entry.tip_camion}}</td>
+                <td>{{entry.data_plecarii}}</td>
+                <td>{{entry.locul_plecarii}}</td>
+                <td>{{entry.data_sosirii}}</td>
+                <td>{{entry.locul_sosirii}}</td>
+                <td>{{entry.lungime}} x {{entry.latime}} x {{entry.inaltime}}</td>
+                <td>{{entry.volum}}</td>
+                <td>{{entry.greutate}}</td>
+                <td>{{entry.pret_km_gol}}</td>
+                <td>{{entry.pret_km_incarcat}}</td>
+                <td><button ng-click="acceptareOfertaExp($index)"><strong>Acceptare oferta</strong></button></td>
+            </tbody>
+        </table>
+    </div>
+</body>

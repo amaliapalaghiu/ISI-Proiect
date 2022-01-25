@@ -1,0 +1,66 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="dashboardexp/cererilemele/modalCerere.css">
+  </head>
+
+  <body>
+    <div class="modal-dialog" style="width:350px;" ng-controller="CererileMeleCtrl">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Adauga o noua cerere</h3>
+      </div>
+  
+      <form ng-submit="submitCerere()">
+          <div class="modal-body" id="modal-body">
+            <label><b>Tip Marfa</b></label> <br>
+            <select name="tipMarfa" id="tipMarfa" ng-model="cerere.tipMarfa">
+                <option value="Alimente">Alimente</option>
+                <option value="Autoturisme">Autoturisme</option>
+                <option value="EchipamenteMedicale">Echipamente Medicale</option>
+                <option value="Mobila">Mobila</option>
+                <option value="TransportColete">Transport colete</option>
+              </select>
+            <br> <br>
+  
+            <label><b>Masa</b></label> <br>
+            <input type="number" id="masa" placeholder="Adauga greutatea" ng-model="cerere.masa">
+            <br> <br>
+  
+            <label><b>Volum</b></label> <br>
+            <input type="number" id="volum" placeholder="Adauga volumul" ng-model="cerere.volum">
+            <br> <br>
+  
+            <label><b>Data plecarii</b></label> <br>
+            <input type="date" id="dataPlecarii" placeholder="Data plecarii" ng-model="cerere.dataPlecarii">
+            <br> <br>
+
+            <label><b>Data maxima de plecare</b></label> <br>
+            <input type="date" id="dataMaxPlecare" placeholder="Data maxima a plecarii" ng-model="cerere.dataMaxPlecare">
+            <br> <br>
+
+            <label><b>Locul plecarii</b></label> <br>
+            <input type="text" id="loculPlecarii" placeholder="Locul plecarii" ng-model="cerere.loculPlecarii">
+            <br> <br>
+
+            <label><b>Data sosirii</b></label> <br>
+            <input type="date" id="dataSosirii" placeholder="Data sosirii" ng-model="cerere.dataSosirii">
+            <br> <br>
+
+            <label><b>Data maxima de sosire</b></label> <br>
+            <input type="date" id="dataMaxSosire" placeholder="Data maxima a sosirii" ng-model="cerere.dataMaxSosire">
+            <br> <br>
+
+            <label><b>Locul sosirii</b></label> <br>
+            <input type="text" id="loculSosirii" placeholder="Locul sosirii" ng-model="cerere.loculSosirii">
+            <br> <br>
+
+            <label><b>Buget</b></label> <br>
+            <input type="number" id="buget" placeholder="Buget" ng-model="cerere.buget">
+            <br> <br>
+  
+          </div>
+                <div class="modal-footer">
+                  <input type="submit" class="btn primary-btn" value="Submit"/>
+                </div>
+      </form>
+      <!-- <button class="btn btn-warning"  ng-click="cancel()">Cancel</button> -->
+    </div>
+  </body>

@@ -6,8 +6,11 @@ angular.module('myApp', [
   'ui.bootstrap',
   'myApp.login',
   'myApp.signup',
+
   'myApp.dashboardtrans',
   'myApp.dashboardexp',
+  'myApp.dashboardadmin',
+  'myApp.conturi',
   'myApp.version',
   'myApp.hartaExp',
   'myApp.cereriExp',
@@ -16,6 +19,7 @@ angular.module('myApp', [
   'myApp.oferteTrans',
   'myApp.camioaneTrans',
   'myApp.listaCereriClienti',
+  'myApp.oferteExp',
   'myApp.contracteTrans',
   'myApp.contractincheiatTrans',
   'esri.map'

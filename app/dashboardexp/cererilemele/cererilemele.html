@@ -1,4 +1,7 @@
 <head>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="dashboardexp/cererilemele/cererilemele.css">
 </head>
 
@@ -8,7 +11,7 @@
         <nav>
             <ul>
                 <li><a ng-click="homeClick()">Home</a></li>
-                <li><a ng-click="cerereNouaClick()">Cerere Noua</a></li>
+                <li><a ng-click="oferteClick()">Oferte</a></li>
                 <li><a href="#">Logout</a></li>
             </ul>
         </nav>
@@ -17,21 +20,43 @@
 
 <body>
   
-    <div class="cereri" ng-controller="CererileMeleCtrl">
-        <h3 class="formHeader">Cereri inregistrate</h3>
-
+    <div class="header_fixed" ng-controller="CererileMeleCtrl">
+        
         <table>
-            <tr>
-              <th>Data</th>
-              <th>Status</th>
-              <th>Cerere</th>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-          </table>
+            <thead>
+                <tr>
+                    <th>Tip marfa</th>
+                    <th>Masa</th>
+                    <th>Volum</th>
+                    <th>Data plecarii</th>
+                    <th>Data maxima de plecare</th>
+                    <th>Locul plecarii</th>
+                    <th>Data sosirii</th>
+                    <th>Data maxima de sosire</th>
+                    <th>Locul sosirii</th>
+                    <th>Buget</th>
+                    <th>Stare</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="entry in cereriData">
+                <td>{{entry.tip_marfa}}</td>
+                <td>{{entry.masa}}</td>
+                <td>{{entry.volum}}</td>
+                <td>{{entry.data_plecarii}}</td>
+                <td>{{entry.data_max_plecarii}}</td>
+                <td>{{entry.locul_plecarii}}</td>
+                <td>{{entry.data_sosirii}}</td>
+                <td>{{entry.data_max_sosirii}}</td>
+                <td>{{entry.locul_sosirii}}</td>
+                <td>{{entry.buget}}</td>
+                <td>{{entry.stare}}</td>
+            </tbody>
+        </table>
 
+
+
+    </div>
+    <div class="modal-addCerere" ng-controller="CererileMeleCtrl">
+        <button type="button" id="addCerere" name="addCerere" ng-click="openModalCerere()">Adauga cerere noua</button>
     </div>
 </body>

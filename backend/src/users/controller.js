@@ -38,7 +38,7 @@ const addUsers = async(req, res) => {
                     if (error) throw error;
                     res.status(201).json(results.rows);
                 })
-            } else {
+            } else if(user_type === 2){
                 pool.query("INSERT INTO expeditori(userID, firstName, lastName, telefon, email) VALUES ($1, $2, $3, $4, $5) RETURNING *",
                 [results.rows[0].userid, firstName, lastName, telephone, email], (error, results) => {
                     if (error) throw error;

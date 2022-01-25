@@ -80,10 +80,3 @@ CREATE TABLE IF NOT EXISTS cereri (
     stare VARCHAR(50),
     FOREIGN KEY(expeditorID) REFERENCES expeditori(expeditorID)
 );
-
-
--- drop table cereri;
--- drop table curse;
--- drop table camion;
--- drop table transportatori;
--- drop table expeditori;
