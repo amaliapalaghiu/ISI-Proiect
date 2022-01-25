@@ -10,7 +10,7 @@ const getExpeditorbyUserId = (req, res) => {
 
 const getCereri = (req, res) => {
     const userID = req.params.id;
-    pool.query("SELECT C.tip_marfa, C.masa, C.volum, C.data_plecarii, C.data_max_plecarii, C.locul_plecarii, C.data_sosirii, C.data_max_sosirii, C.locul_sosirii, C.buget, C.stare \
+    pool.query("SELECT C.cerereID, C.tip_marfa, C.masa, C.volum, C.data_plecarii, C.data_max_plecarii, C.locul_plecarii, C.data_sosirii, C.data_max_sosirii, C.locul_sosirii, C.buget, C.stare \
                 FROM cereri C JOIN expeditori T ON T.expeditorID = \
                 C.expeditorID WHERE T.userID=$1", [userID], 
                 (error, results) => {
