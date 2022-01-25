@@ -20,6 +20,7 @@ angular.module('myApp', [
   'myApp.camioaneTrans',
   'myApp.listaCereriClienti',
   'myApp.oferteExp',
+  'myApp.contractincheiatExp',
   'myApp.contracteTrans',
   'myApp.contractincheiatTrans',
   'esri.map'

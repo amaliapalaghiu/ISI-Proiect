@@ -23,19 +23,48 @@ angular.module('myApp.oferteExp', ['ngRoute', 'ui.bootstrap'])
         $location.path('/dashboardexp');
       }
 
-    $scope.acceptareOfertaExp = function(idx){
-        console.log($scope.offersData[idx]);
+      $scope.acceptareOfertaExp = async function(idx) {
+        //console.log($scope.offersData[idx]);
+        sessionStorage.camionId = $scope.offersData[idx].camionid;
+      $uibModal.open({
+        templateUrl : '/dashboardexp/oferte/alegeCerereModal.html',
+        backdrop: true
+      });
+
+        var dateexp = await $http.get('http://localhost:3000/api/expeditori/' + user.userid).then(function (response) {
+          sessionStorage.expeditorId = JSON.stringify(response.data[0].expeditorid);
+          return response.data;
+      });
+
+      var datetrans = await $http.get('http://localhost:3000/api/expeditori/datetrans/' + $scope.offersData[idx].camionid).then(function (response) {
+       
+      sessionStorage.transportatorId = JSON.stringify(response.data.transportatorid); 
+        return response.data;
+      });
+      //console.log(datetrans);
+
       }
 
-      
+        $scope.submitCerereId = function () {
+          sessionStorage.cerereId = $scope.x.idCerere;
+          //console.log(sessionStorage.transportatorId + sessionStorage.expeditorId);
+          $http({
+            method: 'POST',
+            url: 'http://localhost:3000/api/expeditori/contracte',
+            data: { 
+              transportatorid: sessionStorage.transportatorId,
+              expeditorid: sessionStorage.expeditorId,
+              cerereid: $scope.x.idCerere
+            }
+          }).then(function (response) {
+           // window.location.reload();
+                $location.path('/dashboardexp/contractincheiat')
+                //window.location.reload();
+               
+          });
+         // window.location.reload();
+      }
 
-    // $scope.openModal  = function(){
-    //   $uibModal.open({
-    //     templateUrl : '/dashboardtrans/oferte/modalContent.html',
-    //     backdrop: true
-    //   });
-    // };
 
-    
 
   }]);

@@ -106,6 +106,7 @@ const getListaCereriClienti = (req, res) => {
     })
 };
 
+
 const getDateExpeditorFromCerereID = (req, res) => {
     const cerereID = req.params.id;
     pool.query("SELECT E.expeditorid, E.firstname, E.lastname, E.telefon, E.email FROM expeditori E JOIN cereri C \
@@ -161,6 +162,7 @@ const addContract = async(req, res) => {
     });
 };
 
+
 const getContractsForAUser = (req, res) => {
     const userID = req.params.id;
     pool.query("SELECT C.expeditorid, C.cerereid, E.firstname, E.lastname, E.telefon, E.email FROM contracte C \
@@ -191,6 +193,7 @@ const getCerere = (req, res) => {
     })
 };
 
+
 module.exports = {
     getTransportatori,
     getOffers,
@@ -198,6 +201,7 @@ module.exports = {
     getTrucks,
     addTruck,
     getListaCereriClienti,
+    addContract,
     getTrucksAvailable,
     getDateExpeditorFromCerereID,
     getDateTransportatorFromUserID,
@@ -205,4 +209,5 @@ module.exports = {
     addContract,
     getContractsForAUser,
     getCerere
+
 }
