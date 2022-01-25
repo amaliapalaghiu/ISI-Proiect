@@ -86,5 +86,59 @@ angular.module('myApp.conturi', ['ngRoute'])
           }
       }
 
+      $scope.modificaUtilizator = function(idx) {
+        sessionStorage.dateUserDeModificat = JSON.stringify($scope.conturiData[idx]);
+        $uibModal.open({
+          templateUrl : '/dashboardadmin/conturi/modificaUserModal.html',
+          backdrop: true
+        });
+      }
+
+      $scope.submitModificareDate = function () {
+        $scope.dateVechi = JSON.parse(sessionStorage.dateUserDeModificat);
+
+        var dateUpdate = {};
+        if ($scope.dateNoi.hasOwnProperty('firstName')) {
+          dateUpdate.firstName = $scope.dateNoi.firstName;
+        } else {
+          dateUpdate.firstName = $scope.dateVechi.firstname;
+        }
+
+        if ($scope.dateNoi.hasOwnProperty('lastName')) {
+          dateUpdate.lastName = $scope.dateNoi.lastName;
+        } else {
+          dateUpdate.lastName = $scope.dateVechi.lastname;
+        }
+
+        if ($scope.dateNoi.hasOwnProperty('telephone')) {
+          dateUpdate.telefon = $scope.dateNoi.telephone;
+        } else {
+          dateUpdate.telefon = $scope.dateVechi.telefon;
+        }
+
+        if ($scope.dateNoi.hasOwnProperty('email')) {
+          dateUpdate.email = $scope.dateNoi.email;
+        } else {
+          dateUpdate.email = $scope.dateVechi.email;
+        }
+        dateUpdate.username = $scope.dateVechi.username;
+
+        $http({
+          method: 'POST',
+          url: 'http://localhost:3000/api/admin/modificaDate',
+          data: {
+            username: dateUpdate.username,
+            firstname: dateUpdate.firstName,
+            lastname: dateUpdate.lastName,
+            telefon: dateUpdate.telefon, 
+            email: dateUpdate.email
+          }
+        }).then(function successCallback(response) {
+          window.location.reload();
+          }, function errorCallback(response) {
+            
+          });
+      }
+
 }
 ]);

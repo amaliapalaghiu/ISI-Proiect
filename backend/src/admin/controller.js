@@ -13,6 +13,28 @@ const getUsers = async (req, res) => {
     }
 }
 
+const updateUser = async(req, res) => {
+    const {username, firstname, lastname, telefon, email} = req.body;
+
+    await pool.query(`SELECT user_type, userid from users WHERE username = $1`, [username], (error, results) => {
+        if (error) throw error;
+
+        if (results.rows[0].user_type == 1) {
+            pool.query(`UPDATE transportatori SET firstname = $1, lastname = $2, telefon = $3, email = $4 WHERE userid = $5`,
+            [firstname, lastname, telefon, email, results.rows[0].userid], (error, results) => {
+                if (error) throw error;
+            })
+        } else if (results.rows[0].user_type == 2) {
+            pool.query(`UPDATE expeditori SET firstname = $1, lastname = $2, telefon = $3, email = $4 WHERE userid = $5`,
+            [firstname, lastname, telefon, email, results.rows[0].userid], (error, results) => {
+                if (error) throw error;
+            })
+        }
+        res.status(200).json({msg: 'Success'});
+    })
+}
+
 module.exports = {
-    getUsers
+    getUsers,
+    updateUser
 }
